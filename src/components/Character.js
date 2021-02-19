@@ -5,14 +5,14 @@ import React, {useState, useEffect} from 'react'
 export default function Character(props){
     const {info, open, close, currentCharacterId} = props    
 
-    return (
-        
-    <div className='character'>
-        {props.info.name}
-        <button onClick={() => open(props.info.id)}>
-            See Attributes
-        </button>
-  
-    </div>
+    return ( 
+        <div className='character'>
+            {props.info.name}
+            <button onClick={() => open(props.info.id)}>
+                See Attributes
+            </button>
+    
+        </div>
+
     )
 }

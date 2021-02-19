@@ -8,8 +8,16 @@ import Character from './components/Character'
 import Attributes from './components/Attributes';
 
 const StyledApp = styled.div`
-
-
+  .charContainer{
+    background-color: 'royalblue';
+  }
+  color: #5A5AFF;
+  text-shadow: 1px 1px 5px #fff;
+  font-weight: bold;
+  button{
+    margin-left: 2%;
+    margin-bottom: 2%;
+  }
 
 
 `;
@@ -56,23 +64,28 @@ const App = () => {
   }, []);
 
   return (
+    <StyledApp>
     <div className="App">
       <h1 className="Header">Characters</h1>
+      
       {
         characters.forEach(ch =>{
           ch.id = newCharId
           return newCharId = newCharId + 1;
         })
       }
+      <div className = 'charContainer'>
       {  
         characters.map(ch => {
           return <Character key = {uuidv4(1)} info={ch} open={open} close={close} currentCharacterId = {currentCharacterId}/>
         })
       }
+      </div>
       {
         currentCharacterId && <Attributes currentCharacterId={currentCharacterId} close={close} />
       }
     </div>
+    </StyledApp>
   );
 }
 

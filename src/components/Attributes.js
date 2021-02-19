@@ -25,14 +25,11 @@ export default function Attributes(props){
 
 
     return (
-        <div className = 'container'>
-            
-            <h3>Attributes of character (id: {currentCharacterId})</h3>
-            
+        <div className = 'container'>     
             {
                 attributes &&
                 <>
-                    <p>{attributes.name}</p>
+                    <h3>Attributes of {attributes.name}(id: {currentCharacterId})</h3>
                     <p>Gender: {attributes.gender}</p>
                     <p>Height: {attributes.height}</p>
                     <p>Mass: {attributes.mass}</p>
