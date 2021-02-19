@@ -1,10 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import {BASE_URL} from './constants/index'
 import Character from './components/Character'
 import Attributes from './components/Attributes';
+
+const StyledApp = styled.div`
+
+
+
+
+`;
+
+
+
+
+
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -17,12 +31,14 @@ const App = () => {
   const [currentCharacterId, setCurrentCharacterId] = useState(null)
 
   const open = id =>{
-    setCurrentCharacterId(id)
+    setCurrentCharacterId((id))
   }
-
   const close = () =>{
     setCurrentCharacterId(null)
   }
+
+  var newCharId = 1;
+
 
   useEffect(() =>{
     const fetchCharacters = () =>{
@@ -43,8 +59,14 @@ const App = () => {
     <div className="App">
       <h1 className="Header">Characters</h1>
       {
-        characters.map(ch =>{
-          return <Character key = {1} info={ch} open={open}/>
+        characters.forEach(ch =>{
+          ch.id = newCharId
+          return newCharId = newCharId + 1;
+        })
+      }
+      {  
+        characters.map(ch => {
+          return <Character key = {uuidv4(1)} info={ch} open={open} close={close} currentCharacterId = {currentCharacterId}/>
         })
       }
       {
