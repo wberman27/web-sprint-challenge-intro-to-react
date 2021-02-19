@@ -24,7 +24,7 @@ export default function Attributes(props){
 
 
 
-    return (
+    return ( //spans help with styling content of this container
         
         <div className = 'container'>     
             {
@@ -32,6 +32,7 @@ export default function Attributes(props){
                 <>
                     <span>
                     <h3><span id = 'cName'>{attributes.name}</span> (id: {currentCharacterId})</h3>
+                    <span id = 'hoverAttr'>
                     <p>Gender: {attributes.gender}</p>
                     <p>Height: {attributes.height}</p>
                     <p>Mass: {attributes.mass}</p>
@@ -39,6 +40,7 @@ export default function Attributes(props){
                     <p>Eye Color: {attributes.eye_color}</p>
                     <p>Hair Color: {attributes.hair_color}</p>
                     <p>Skin Color: {attributes.skin_color}</p>
+                    </span>
                     </span>
                 </>
             }

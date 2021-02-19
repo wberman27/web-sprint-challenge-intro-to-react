@@ -1,5 +1,7 @@
 export default {
     primaryColor: '#5A5AFF',
-    secondaryColor: 'lime'
+    secondaryColor: 'lime',
+    black: 'black',
+    white: 'white'
 
 }

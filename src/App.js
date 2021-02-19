@@ -1,52 +1,11 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import axios from 'axios'
-import styled, {keyframes} from 'styled-components'
-import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios' //used to fetch api data .get
+import { v4 as uuidv4 } from 'uuid'; //allows for unique key names
 import './App.css';
 import {BASE_URL} from './constants/index'
 import Character from './components/Character'
-import Attributes from './components/Attributes';
-import theme from './theme'
-
-const StyledApp = styled.div`
-  .charContainer{
-    margin-top: 8%;
-    border-radius: 5px;
-  }
-  color: ${props => props.theme.primaryColor};
-  text-shadow: 1px 1px 5px #fff;
-  font-weight: bold;
-
-  #cName{
-    color:${props => props.theme.secondaryColor};
-    text-shadow: 1px 1px 5px black;
-  }
-  span{
-    color: black;
-  }
-
-  h1 { //animation - slides the header onto page from the left to the center
-        text-align:center;
-        position: absolute;
-        left: -100%;
-        width: 100%;
-        animation: slide 2s forwards;
-      }
-  @keyframes slide{
-      100% {left: 0; }
-  }
-  button { //button hover animation
-      &:hover{
-        transform: scale(1.5);
-        transition: .5s ease-in-out;
-      }transition: .5s ease-in-out;
-      margin-top:2%;
-      margin-bottom:4%;
-      margin-left: 2%;
-      border-radius: 5px;
-    }
-`;
-
+import Attributes from './components/Attributes'
+import StyledApp from './StyledApp'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -99,12 +58,12 @@ const App = () => {
       <div className = 'charContainer'>
       {  
         characters.map(ch => {
-          return <Character key = {uuidv4(1)} info={ch} open={open} close={close} currentCharacterId = {currentCharacterId}/>
+          return <Character key = {uuidv4(1)} info={ch} open={open} close={close} currentCharacterId = {currentCharacterId}/> //give Character key, props info, open, close and currentId
         })
       }
       </div>
       {
-        currentCharacterId && <Attributes currentCharacterId={currentCharacterId} close={close} />
+        currentCharacterId && <Attributes currentCharacterId={currentCharacterId} close={close} /> //give Attributes, if, we have an id, props currentId and close
       }
     </div>
     </StyledApp>
