@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import './App.css';
 import {BASE_URL} from './constants/index'
 import Character from './components/Character'
+import Attributes from './components/Attributes';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -26,9 +27,10 @@ const App = () => {
   useEffect(() =>{
     const fetchCharacters = () =>{
       axios
-      .get()
+      .get(`${BASE_URL}`)
       .then(res =>{
-        setCharacters(res.data);
+        console.log(res);
+        setCharacters(res.data)
       })
       .catch(err =>{
         console.log(err)
@@ -40,6 +42,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      {
+        characters.map(ch =>{
+          return <Character key = {1} info={ch} open={open}/>
+        })
+      }
+      {
+        currentCharacterId && <Attributes currentCharacterId={currentCharacterId} close={close} />
+      }
     </div>
   );
 }
