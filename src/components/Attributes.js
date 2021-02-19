@@ -30,7 +30,7 @@ export default function Attributes(props){
             {
                 attributes &&
                 <>
-                    <h3>Attributes of {attributes.name}(id: {currentCharacterId})</h3>
+                    <h3>Attributes of <span>{attributes.name}</span> (id: {currentCharacterId})</h3>
                     <p>Gender: {attributes.gender}</p>
                     <p>Height: {attributes.height}</p>
                     <p>Mass: {attributes.mass}</p>

@@ -24,6 +24,7 @@
 }
 .footImg img{
   width:25%;
+  border-radius: 10px;
 }
 .footImg{
   display:flex;

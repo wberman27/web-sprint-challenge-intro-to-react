@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 
 export default function Character(props){
-    const {info, open, close, currentCharacterId} = props    
+    const {info, open, } = props    
 
     return ( 
         <div className='character'>

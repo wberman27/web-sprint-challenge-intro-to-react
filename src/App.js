@@ -1,31 +1,39 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import {BASE_URL} from './constants/index'
 import Character from './components/Character'
 import Attributes from './components/Attributes';
+import theme from './theme'
 
 const StyledApp = styled.div`
   .charContainer{
-    background-color: 'royalblue';
+    margin-top: 10%;
+    border-radius: 5px;
   }
-  color: #5A5AFF;
+  color: ${props => props.theme.primaryColor};
   text-shadow: 1px 1px 5px #fff;
   font-weight: bold;
   button{
     margin-left: 2%;
     margin-bottom: 2%;
   }
-
-
+  span{
+    color:'crimson';
+  }
+  h1 { //animation - slides the header onto page from the left to the center
+        text-align:center;
+        position: absolute;
+        left: -100%;
+        width: 100%;
+        animation: slide 2s forwards;
+      }
+  @keyframes slide{
+      100% {left: 0; }
+  }
 `;
-
-
-
-
-
 
 
 const App = () => {
@@ -38,17 +46,17 @@ const App = () => {
   const [characters, setCharacters] = useState([])
   const [currentCharacterId, setCurrentCharacterId] = useState(null)
 
-  const open = id =>{
+  const open = id =>{ //on open via button, set character id
     setCurrentCharacterId((id))
   }
-  const close = () =>{
+  const close = () =>{ //close button will set character id to null, so Attributes doesnt render
     setCurrentCharacterId(null)
   }
 
   var newCharId = 1;
 
 
-  useEffect(() =>{
+  useEffect(() =>{ //on initial render only, get data from api and setCharacters to it
     const fetchCharacters = () =>{
       axios
       .get(`${BASE_URL}`)
@@ -63,11 +71,12 @@ const App = () => {
     fetchCharacters();
   }, []);
 
-  return (
+  return ( //Fragment will allow for more divs inside return
     <Fragment>
     <StyledApp>
+    <h1 className="Header">Star Wars Characters</h1>
     <div className="App">
-      <h1 className="Header">Star Wars Characters</h1>
+      
       
       {
         characters.forEach(ch =>{
