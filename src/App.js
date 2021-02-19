@@ -10,19 +10,21 @@ import theme from './theme'
 
 const StyledApp = styled.div`
   .charContainer{
-    margin-top: 10%;
+    margin-top: 8%;
     border-radius: 5px;
   }
   color: ${props => props.theme.primaryColor};
   text-shadow: 1px 1px 5px #fff;
   font-weight: bold;
-  button{
-    margin-left: 2%;
-    margin-bottom: 2%;
+
+  #cName{
+    color:${props => props.theme.secondaryColor};
+    text-shadow: 1px 1px 5px black;
   }
   span{
-    color:'crimson';
+    color: black;
   }
+
   h1 { //animation - slides the header onto page from the left to the center
         text-align:center;
         position: absolute;
@@ -33,6 +35,16 @@ const StyledApp = styled.div`
   @keyframes slide{
       100% {left: 0; }
   }
+  button { //button hover animation
+      &:hover{
+        transform: scale(1.5);
+        transition: .5s ease-in-out;
+      }transition: .5s ease-in-out;
+      margin-top:2%;
+      margin-bottom:4%;
+      margin-left: 2%;
+      border-radius: 5px;
+    }
 `;
 
 

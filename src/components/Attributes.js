@@ -8,7 +8,7 @@ export default function Attributes(props){
 
     
 
-    useEffect(()=>{
+    useEffect(()=>{ //when character id changes, grab the data with corresponding id
         console.log(currentCharacterId)
         axios
         .get(`${BASE_URL}/${currentCharacterId}`)
@@ -30,7 +30,8 @@ export default function Attributes(props){
             {
                 attributes &&
                 <>
-                    <h3>Attributes of <span>{attributes.name}</span> (id: {currentCharacterId})</h3>
+                    <span>
+                    <h3><span id = 'cName'>{attributes.name}</span> (id: {currentCharacterId})</h3>
                     <p>Gender: {attributes.gender}</p>
                     <p>Height: {attributes.height}</p>
                     <p>Mass: {attributes.mass}</p>
@@ -38,6 +39,7 @@ export default function Attributes(props){
                     <p>Eye Color: {attributes.eye_color}</p>
                     <p>Hair Color: {attributes.hair_color}</p>
                     <p>Skin Color: {attributes.skin_color}</p>
+                    </span>
                 </>
             }
             <button onClick={close}> Close </button>
