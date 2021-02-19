@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 .Header {
   color: #443e3e;
@@ -8,9 +12,22 @@
 /* write your parent styles in here for your App.js */
 .charContainer {
   display:flex;
-  background-color: gray;
-  opacity: .5;
+  background-color: rgba(88, 86, 86, 0.5);
   flex-flow: row nowrap;
   justify-content: center;
   align-items:center;
+}
+.container {
+  margin-top: 2%;
+  background-color:rgba(88, 86, 86, 0.5);
+  width: 50%;
+}
+.footImg img{
+  width:25%;
+}
+.footImg{
+  display:flex;
+  justify-content: center;
+  padding-top:5%;
+  position: bottom;
 }

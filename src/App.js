@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 import { v4 as uuidv4 } from 'uuid';
@@ -64,9 +64,10 @@ const App = () => {
   }, []);
 
   return (
+    <Fragment>
     <StyledApp>
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">Star Wars Characters</h1>
       
       {
         characters.forEach(ch =>{
@@ -86,6 +87,10 @@ const App = () => {
       }
     </div>
     </StyledApp>
+    <div className = 'footImg'>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" alt="Star Wars logo"></img>
+    </div>
+    </Fragment>
   );
 }
 

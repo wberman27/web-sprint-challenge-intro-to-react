@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import {BASE_URL} from '../constants/index'
 
@@ -25,6 +25,7 @@ export default function Attributes(props){
 
 
     return (
+        
         <div className = 'container'>     
             {
                 attributes &&
@@ -40,8 +41,8 @@ export default function Attributes(props){
                 </>
             }
             <button onClick={close}> Close </button>
-
         </div>
+        
     )
 
 }
